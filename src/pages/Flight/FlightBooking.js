@@ -63,7 +63,7 @@ const FlightBooking = () => {
     if (id) {
       ApiService.request(`book-flight/${id}`, 'get').then((response) => {
         setTicketDetails(response.flightBookDetails);
-        setPassenger(response.flightBookDetails);
+        setPassenger(response.data);
       });
     }
   }, [id]);
@@ -134,10 +134,7 @@ const FlightBooking = () => {
         arrivalLocation: flightDetails.arrival.code,
       }).then((response) => {
         if (response) {
-          localStorage.setItem(
-            'passengerInfo',
-            JSON.stringify(response.flightBookDetails)
-          );
+          localStorage.setItem('passengerInfo', JSON.stringify(response.data));
           navigate('/booking-confirmation');
         }
       });
@@ -163,12 +160,10 @@ const FlightBooking = () => {
         arrivalAirport: flightDetails.arrival.airport,
         departureLocation: flightDetails.departure.code,
         arrivalLocation: flightDetails.arrival.code,
+        status: 'Rescheduled',
       }).then((response) => {
         if (response) {
-          localStorage.setItem(
-            'passengerInfo',
-            JSON.stringify(response.flightBookDetails)
-          );
+          localStorage.setItem('passengerInfo', JSON.stringify(response.data));
           navigate('/bookings');
         }
       });

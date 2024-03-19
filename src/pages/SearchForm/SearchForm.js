@@ -176,10 +176,7 @@ const SearchForm = ({
       setDepartureDate(
         moment(ticketDetails?.departureDate).format('YYYY-MM-DD')
       );
-      console.log('departureAirpot', departureAirpot);
-      console.log('arrivalAirport', arrivalAirport);
-      console.log('selectedDepartureAirpot', selectedDepartureAirpot);
-      console.log('selectedArrivalAirport', selectedArrivalAirport);
+
       setFromAirpot(selectedDepartureAirpot);
 
       setToAirpot(selectedArrivalAirport);
@@ -214,7 +211,7 @@ const SearchForm = ({
   };
   const handleFetchData = (e) => {
     ApiService.request('flight/list', 'get').then((response) => {
-      setFlightList(response.flight);
+      setFlightList(response.data);
       setSearchoptions({
         departure: { ...fromAirpot, departureDate },
         arrival: { ...toAirpot },
@@ -225,8 +222,8 @@ const SearchForm = ({
     <>
       <section id="theme_search_form">
         <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
+          <div className="row justify-content-center">
+            <div className="col-lg-10">
               <div className="theme_search_form_area">
                 <div className="theme_search_form_tabbtn">
                   {!isFlightBooking && (

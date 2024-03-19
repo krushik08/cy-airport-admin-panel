@@ -7,8 +7,8 @@ const Bookings = () => {
   const navigate = useNavigate();
   const [bookFlight, setBookFlight] = useState(0);
   const [isToggled, setIsToggled] = useState(false);
-  const [isopen, setIsopen] = useState();
-  const [selectedId, setSelectedId] = useState();
+  const [isopen, setIsOpen] = useState();
+  const [selectedId, setSelectedId] = useState('all');
   useEffect(() => {
     handleFetchData();
   }, []);
@@ -19,19 +19,22 @@ const Bookings = () => {
   };
   const handleFetchData = () => {
     ApiService.request('book-flight', 'get').then((response) => {
-      setBookFlight(response.flightBookDetails);
+      setBookFlight(response.data);
     });
   };
   const handleCancel = (id) => {
-    ApiService.request(`book-flight/${selectedId}`, 'delete').then(
-      (response) => {
+    if (selectedId === 'all') {
+      deleteData();
+    } else {
+      ApiService.request(`book-flight/${selectedId}`, 'put', {
+        status: 'Cancelled',
+      }).then((response) => {
         if (response) {
-          console.log('deleted success');
-          setIsopen(false);
+          setIsOpen(false);
           handleFetchData();
         }
-      }
-    );
+      });
+    }
   };
   const importData = () => {
     ApiService.request(`book-flight/dummy/import-record`, 'post').then(
@@ -51,6 +54,7 @@ const Bookings = () => {
         if (response) {
           console.log('Record delete success');
           handleFetchData();
+          setIsOpen(false);
         }
       }
     );
@@ -105,24 +109,27 @@ const Bookings = () => {
                     <button
                       className="btn btn-danger"
                       type="button"
-                      onClick={deleteData}
+                      onClick={() => {
+                        setIsOpen(true);
+                        setSelectedId('all');
+                      }}
                     >
                       Clear Data
                     </button>
                   </div>
                 </div>
                 <div className="table-responsive-lg table_common_area">
-                  <table className="table">
+                  <table className="table table-borderless">
                     <thead>
                       <tr>
                         <th>Sl no.</th>
                         <th>PNR Number</th>
-                        <th>Flight Number</th>
-                        <th>Status</th>
+                        <th>Airline Name</th>
                         <th>Departure Time</th>
                         <th>Departure Airpot</th>
                         <th>Arrival Airpot</th>
                         <th>Passenger Name</th>
+                        <th>Status</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -135,18 +142,7 @@ const Bookings = () => {
                                 <td>0{index + 1}.</td>
                                 <td>{item?.PNRNumber}</td>
                                 <td>{item?.flightId?.name}</td>
-                                <td
-                                  style={{
-                                    color:
-                                      item?.status === 'Confirmed'
-                                        ? '#80C482'
-                                        : item?.status === 'Cancelled'
-                                        ? '#DC3444'
-                                        : '#FFD81C',
-                                  }}
-                                >
-                                  {item?.status}
-                                </td>
+
                                 <td>
                                   {moment(item?.departureDate).format(
                                     'DD-MM-YYYY hh:mm a'
@@ -162,8 +158,20 @@ const Bookings = () => {
                                 <td>
                                   {item?.firstName} {item?.lastName}
                                 </td>
+                                <td
+                                  style={{
+                                    color:
+                                      item?.status === 'Confirmed'
+                                        ? '#80C482'
+                                        : item?.status === 'Cancelled'
+                                        ? '#DC3444'
+                                        : '#FFD81C',
+                                  }}
+                                >
+                                  {item?.status}
+                                </td>
                                 <td className="d-flex gap-4 align-items-center justify-content-center">
-                                  {moment(item?.departureDate)?.isAfter() && (
+                                  {moment(item?.departureDate)?.isAfter() ? (
                                     <>
                                       <button
                                         className="btn btn_navber"
@@ -180,17 +188,16 @@ const Bookings = () => {
                                         className="btn btn-danger"
                                         type="button"
                                         aria-expanded="true"
-                                        onClick={
-                                          () => {
-                                            setIsopen(true);
-                                            setSelectedId(item?.PNRNumber);
-                                          }
-                                          // handleCancel(item?.PNRNumber)
-                                        }
+                                        onClick={() => {
+                                          setIsOpen(true);
+                                          setSelectedId(item?.PNRNumber);
+                                        }}
                                       >
                                         Cancel
                                       </button>
                                     </>
+                                  ) : (
+                                    <div style={{ height: 30 }}></div>
                                   )}
                                 </td>
                               </tr>
@@ -223,15 +230,27 @@ const Bookings = () => {
                   type="button"
                   data-bs-dismiss="modal"
                   aria-label="Close"
-                  onClick={() => setIsopen(false)}
+                  onClick={() => setIsOpen(false)}
                 >
                   X
                 </button>
               </div>
-              <h3>
-                Are you sure? <br />
-                you want to cancel.
-              </h3>
+              {selectedId === 'all' ? (
+                <>
+                  <h3>
+                    Are you sure? <br />
+                    you want to Clear all record.
+                  </h3>
+                </>
+              ) : (
+                <>
+                  <h3>
+                    Are you sure? <br />
+                    you want to cancel.
+                  </h3>
+                </>
+              )}
+
               <div className="logout_approve_button">
                 <button
                   data-bs-dismiss="modal"
@@ -243,7 +262,7 @@ const Bookings = () => {
                 <button
                   data-bs-dismiss="modal"
                   className="btn btn_border btn_md"
-                  onClick={() => setIsopen(false)}
+                  onClick={() => setIsOpen(false)}
                 >
                   No Cancel
                 </button>

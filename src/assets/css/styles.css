@@ -4237,11 +4237,14 @@ textarea {
     display: flex;
     align-items: center;
     padding-left: 47px;
+        justify-content: space-around;
+            width: 100%;
 }
 
 .flight_multis_area_wrapper {
     display: flex;
     justify-content: space-between;
+    flex-grow: 1;
 }
 
 .flight_search_destination {
@@ -4982,7 +4985,15 @@ textarea {
 }
 
 .flight_logo {
-    width: 34px;
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .flight_logo img {
+        width: 100px;
+        height: 100px;
 }
 
 .go-top:hover,
