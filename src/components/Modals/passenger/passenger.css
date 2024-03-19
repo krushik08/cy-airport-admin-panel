@@ -1,0 +1,34 @@
+.top_form_button button {
+  border: none;
+  background-color: var(--main-color) !important;
+  padding: 0;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.dropdown_passenger_area button::after {
+  display: none;
+}
+
+.dropdown_passenger_area .dropdown-menu.show {
+  transform: translate(-56%, 70px) !important;
+}
+
+.dropdown_passenger_area .dropdown-menu {
+  z-index: 1000;
+  min-width: 350px;
+  padding: 15px 20px;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+}
+
+.top_form_button {
+  text-align: center;
+  margin-top: 30px !important;
+}

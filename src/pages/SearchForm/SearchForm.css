@@ -1,0 +1,314 @@
+#theme_search_form {
+  margin-top: -140px;
+}
+
+.theme_search_form_area {
+  background: #ffffff;
+  box-shadow: 4px 14px 28px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 30px 30px;
+  position: relative;
+}
+
+.theme_search_form_tabbtn .nav-item {
+  margin-right: 20px;
+}
+
+.theme_search_form_tabbtn .nav-item:last-child {
+  margin-right: 0px;
+}
+
+.theme_search_form_tabbtn .nav-tabs {
+  border-bottom: none;
+}
+
+.theme_search_form_tabbtn .nav-tabs .nav-item.show .nav-link,
+.theme_search_form_tabbtn .nav-tabs .nav-link.active {
+  color: var(--white-color);
+  background-color: var(--main-color);
+  border-color: none;
+}
+
+.theme_search_form_tabbtn .nav-tabs .nav-link {
+  margin-bottom: 0;
+  color: var(--black-color);
+  border-radius: 6px;
+  border: 1px solid var(--main-color);
+}
+
+.theme_search_form_tabbtn .nav-tabs .nav-link svg {
+  margin-right: 10px;
+}
+
+.theme_search_form_tabbtn {
+  margin-bottom: 30px;
+}
+
+.flight_Search_boxed {
+  background: #8b3eea17;
+  padding: 10px 10px 10px 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.plan_icon_posation {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.range_plan {
+  position: absolute;
+  left: -37px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.range_plan-wrapper {
+  background: #f5eefd;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 46px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  color: var(--main-color);
+  cursor: pointer;
+}
+
+.flight_Search_boxed p {
+  font-size: 14px;
+}
+
+.city_Name select {
+  padding: 8px;
+  font-size: 20px;
+  width: 70%;
+  font-weight: 500;
+  border: none;
+  background: transparent;
+}
+
+.city_Name select:hover,
+.city_Name select::before {
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  appearance: none;
+}
+
+.flight_Search_boxed input {
+  font-size: 22px;
+  width: 87%;
+  border: none;
+  background: transparent;
+  font-weight: 500;
+  height: 35px;
+  padding: 0;
+}
+
+.flight_Search_boxed input:focus-within {
+  outline: none;
+  border: none;
+}
+
+.flight_Search_boxed span {
+  display: block;
+  font-size: 12px;
+  padding-top: 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.date_flex_area {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown_passenger_area button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.dropdown_passenger_area button::after {
+  display: none;
+}
+
+.dropdown_passenger_area .dropdown-menu.show {
+  transform: translate(-56%, 70px) !important;
+}
+
+.dropdown_passenger_area .dropdown-menu {
+  z-index: 1000;
+  min-width: 350px;
+  padding: 15px 20px;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+}
+
+.traveller-calulate-persons .passengers .passengers-types .passengers-type {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  justify-content: space-between;
+}
+
+.traveller-calulate-persons .passengers .passengers-types .passengers-type .text {
+  align-items: center;
+  display: flex;
+}
+
+.traveller-calulate-persons .passengers .passengers-types .passengers-type .text .count {
+  margin-right: 20px;
+  width: 24px;
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.traveller-calulate-persons .passengers .passengers-types .passengers-type .text .type-label span {
+  font-size: 12px;
+  color: #4c4c4c;
+}
+
+.traveller-calulate-persons .passengers .passengers-types .passengers-type .button-set button {
+  font-size: 12px;
+  color: #4c4c4c;
+  border: 1px solid #d8d8d8;
+  width: 20px;
+  height: 20px;
+}
+
+.traveller-calulate-persons .passengers .passengers-types {
+  padding-top: 15px;
+}
+
+.traveller-calulate-persons .passengers h6 {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--main-color);
+}
+
+.traveller-calulate-persons .cabin-selection {
+  padding-top: 10px;
+  border-top: 1px solid #c7c7cc;
+  margin-top: 20px;
+}
+
+.traveller-calulate-persons .label-select-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 10px;
+}
+
+.traveller-calulate-persons .label-select-btn:hover {
+  background: var(--main-color);
+  color: var(--white-color);
+}
+
+.traveller-calulate-persons .label-select-btn.active {
+  background: var(--main-color);
+  color: var(--white-color);
+}
+
+.traveller-calulate-persons .muiButton-label {
+  font-size: 14px;
+}
+
+.traveller-calulate-persons .cabin-selection h6 {
+  padding: 15px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--main-color);
+}
+
+.top_form_search_button {
+  text-align: center;
+  margin-top: 30px !important;
+}
+
+.flight_categories_search .nav-tabs {
+  border-bottom: none;
+}
+
+.flight_categories_search .nav-tabs .nav-item.show .nav-link,
+.flight_categories_search .nav-tabs .nav-link.active {
+  color: var(--main-color);
+  border-color: none;
+}
+
+.flight_categories_search .nav-tabs .nav-link {
+  margin-bottom: 0;
+  color: var(--black-color);
+  border-radius: 6px;
+  border: none;
+  font-weight: 500;
+  background: transparent;
+}
+
+.flight_categories_search {
+  position: absolute;
+}
+
+.booking_categories_search {
+  right: unset;
+  top: 15px;
+}
+
+.root_categories_search {
+  right: 30px;
+  top: 25px;
+}
+
+.multi_city_form {
+  margin-bottom: 15px;
+}
+
+.add_multy_form {
+  text-align: right;
+}
+
+.add_multy_form button {
+  color: var(--main-color);
+  border: none;
+  background: transparent;
+}
+
+.multi_form_remove {
+  text-align: right;
+}
+
+.multi_form_remove button {
+  color: red;
+  border: none;
+  background: transparent;
+  padding-bottom: 10px;
+}
+
+select {
+  width: 200px;
+}
+
+@media (max-width: 1399px) {
+
+  #theme_search_form .container,
+  #theme_search_form .container-lg,
+  #theme_search_form .container-md,
+  #theme_search_form .container-sm,
+  #theme_search_form .container-xl {
+    max-width: 100%;
+  }
+}
