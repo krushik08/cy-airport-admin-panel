@@ -85,7 +85,6 @@ const FlightBooking = () => {
     if (!passenger?.DOB || moment(passenger.DOB, 'YYYY-MM-DD').isAfter()) {
       newState['DOB'] = 'Please Valid Birth Date';
     }
-    debugger;
     if (
       !passenger?.phoneNumber ||
       (passenger?.phoneNumber && typeof passenger.phoneNumber === 'number'

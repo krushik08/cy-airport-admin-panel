@@ -150,10 +150,10 @@ const Bookings = () => {
                                 </td>
 
                                 <td>
-                                  {item?.departureAirport.slice(0, 27) + '...'}
+                                  {item?.departureAirport?.slice(0, 27) + '...'}
                                 </td>
                                 <td>
-                                  {item?.arrivalAirport.slice(0, 27) + '...'}
+                                  {item?.arrivalAirport?.slice(0, 27) + '...'}
                                 </td>
                                 <td>
                                   {item?.firstName} {item?.lastName}

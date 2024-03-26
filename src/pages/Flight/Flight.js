@@ -94,9 +94,16 @@ const Flight = () => {
           <div className="row">
             <div className="col-lg-12 col-md-12 col-sm-12 col-12">
               <div className="section_heading_center">
-                <h2>
-                  {flightList.length} Flight{flightList.length ? 's' : ''} Found
-                </h2>
+                {flightList.length ? (
+                  <h2>
+                    <>
+                      {flightList.length} Flight{flightList.length ? 's' : ''}{' '}
+                      Found
+                    </>
+                  </h2>
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
           </div>

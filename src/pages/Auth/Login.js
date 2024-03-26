@@ -16,7 +16,6 @@ function Login({ count, setUserData }) {
 
     ApiService.request('auth/login', 'post', userCredentials).then(
       (response, err) => {
-        debugger;
         if (response) {
           setUserData(response.data);
           toast.success('login successfully.', { position: 'top-center' });
@@ -29,7 +28,6 @@ function Login({ count, setUserData }) {
       }
     );
     // .catch((err) => {
-    //   debugger;
     //   toast.error('Invalid UserName and Password', {
     //     position: 'Bottom-left',
     //   });
